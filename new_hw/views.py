@@ -41,10 +41,10 @@ def models_id(request, models, pk):
                                    .annotate(average_rating=Round(Avg('book__rating'))), pk=pk)
 
     model = {
-        'book': render(request, 'book_id.html', context={'num_books': num_books}, ),
-        'author': render(request, 'author_id.html', context={'num_author': num_author}, ),
-        'store': render(request, 'store_id.html', context={'num_store': num_store}, ),
-        'publisher': render(request, 'publisher_id.html', context={'num_publisher': num_publisher}, )
+        'book': render(request, 'book_id.html', context={'num_books': num_books}),
+        'author': render(request, 'author_id.html', context={'num_author': num_author}),
+        'store': render(request, 'store_id.html', context={'num_store': num_store}),
+        'publisher': render(request, 'publisher_id.html', context={'num_publisher': num_publisher})
     }
     new_response = model.get(models)
     if new_response:

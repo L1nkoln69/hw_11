@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from django.urls import reverse  # noqa F401
 
 
 class Author(models.Model):
@@ -9,8 +9,8 @@ class Author(models.Model):
     def __str__(self):
         return f'{self.name} {self.age}'
 
-    def get_absolute_url(self):
-        return reverse('models-id', args=[str(self.pk)])
+    # def get_absolute_url(self):
+    #     return reverse("model", args=[str(self.id)])
 
 
 class Publisher(models.Model):
@@ -19,8 +19,8 @@ class Publisher(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-    def get_absolute_url(self):
-        return reverse('models-id', args=[str(self.pk)])
+    # def get_absolute_url(self):
+    #     return reverse('models-id', args=[str(self.pk)])
 
 
 class Book(models.Model):
@@ -35,8 +35,8 @@ class Book(models.Model):
     def __str__(self):
         return f'{self.name} {self.rating}'
 
-    def get_absolute_url(self):
-        return reverse('models-id', args=[str(self.pk)])
+    # def get_absolute_url(self):
+    #     return reverse('models-id', args=[str(self.pk)])
 
 
 class Store(models.Model):
@@ -46,5 +46,5 @@ class Store(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-    def get_absolute_url(self):
-        return reverse('models-id', args=[str(self.pk)])
+    # def get_absolute_url(self):
+    #     return reverse('models-id', args=[str(self.pk)])

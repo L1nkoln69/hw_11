@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 
 from faker import Faker
 
-from hw_11.models import Author, Book, Publisher
+from new_hw.models import Author, Book, Publisher
 
 
 def create_title():

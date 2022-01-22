@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 
 from faker import Faker
 
-from hw_11.models import Publisher
+from new_hw.models import Publisher
 
 
 class Command(BaseCommand):
