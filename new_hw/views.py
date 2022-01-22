@@ -1,7 +1,8 @@
 from django.db.models import Avg, Count
-from django.shortcuts import render, get_object_or_404
-from django.db.models.functions import Round
 from django.http import HttpResponse
+from django.db.models.functions import Round  # noqa I100
+from django.shortcuts import render, get_object_or_404  # noqa I101
+
 from .models import Author, Book, Publisher, Store
 
 

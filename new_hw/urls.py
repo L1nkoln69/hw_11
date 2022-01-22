@@ -1,4 +1,5 @@
-from django.urls import path, include
+from django.urls import path
+
 from new_hw import views
 
 app_name = 'new_hw'
