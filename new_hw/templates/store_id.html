@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h1>Store: {{ num_store.name }}</h1><br>
+    <h4>Book list:</h4>
+    <ul>
+        {% for book in num_store.books.all %}
+            <li><a href="{{ book.get_absolute_url }}">{{ book.name }}</a> ({{ book.rating }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

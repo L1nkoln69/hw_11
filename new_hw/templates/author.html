@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if num_author %}
+    <ul>
+      {% for author in num_author %}
+      <li>
+          <p>
+              <a href="{{author.get_absolute_url}}">{{ author.name }}</a>
+              ({{ author.age }} годиков  {{ author.books_count }} books)
+          </p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no Authors.</p>
+    {% endif %}
+</body>
+</html>

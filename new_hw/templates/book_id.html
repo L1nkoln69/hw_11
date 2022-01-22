@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if num_books %}
+    <h1>Book: {{ num_books.name }}</h1><br>
+        <ul>
+            <li>
+                <h4>
+                    {% if num_books.authors.count == 1 %}
+                    Author:
+                    {% else %}
+                    Authors:
+                    {% endif %}
+                </h4>
+                <ul>
+                    {% for author in num_books.authors.all %}
+                        <li><a href="{{ author.get_absolute_url }}">{{ author.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>Raring: {{ num_books.rating }}</li>
+            <li>Price: {{ num_books.price }}</li>
+            <li>Pubdate: {{ num_books.pubdate }}</li>
+            <li>Publisher: <a href="{{ book.publisher.get_absolute_url }}">{{ num_books.publisher }}</a></li>
+            <li>Pages: {{ num_books.pages }}</li>
+            {% endif %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if num_author %}
+     <h1>Author Info:</h1><br>
+        <ul>
+            <li>Author name: {{ num_author.name }}</li>
+            <li>Age: {{ num_author.age }} y.o.</li>
+            <li>Avg Rating: {{ num_author.average_rating }}</li>
+            <li>
+                <h4>
+                    Books:
+                    <ul>
+                        {% for book in num_author.book_set.all %}
+                            <li><a href="{{ book.get_absolute_url }}">{{ book.name }}</a>({{ book.rating }})</li>
+                        {% endfor %}
+                    </ul>
+
+                    {% endif %}
+
+</body>
+</html>

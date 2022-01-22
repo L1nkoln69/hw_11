@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     {% if num_store %}
+    <ul>
+      {% for store in num_store %}
+      <li>
+          <p><a href="{{store.get_absolute_url}}">{{ store.name }}</a> ({{ store.books_count }} books)</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no Stores.</p>
+    {% endif %}
+</body>
+</html>

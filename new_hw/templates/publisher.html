@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if num_publisher %}
+    <ul>
+      {% for publisher in num_publisher %}
+      <li>
+          <p><a href="{{publisher.get_absolute_url}}">{{ publisher.name }}</a> ({{ publisher.books_count }} books)</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no publishers.</p>
+    {% endif %}
+</body>
+</html>
