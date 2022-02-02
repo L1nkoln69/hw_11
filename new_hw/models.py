@@ -9,8 +9,8 @@ class Author(models.Model):
     def __str__(self):
         return f'{self.name} {self.age}'
 
-    # def get_absolute_url(self):
-    #     return reverse("model", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("one_author", args=[str(self.id)])
 
 
 class Publisher(models.Model):
@@ -20,7 +20,7 @@ class Publisher(models.Model):
         return f'{self.name}'
 
     # def get_absolute_url(self):
-    #     return reverse('models-id', args=[str(self.pk)])
+    #     return reverse('models-id', args=[str(self.id)])
 
 
 class Book(models.Model):
@@ -30,13 +30,13 @@ class Book(models.Model):
     rating = models.FloatField()
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
-    pubdate = models.DateField()
+    pubdate = models.DateField(auto_now=True)
 
     def __str__(self):
         return f'{self.name} {self.rating}'
 
     # def get_absolute_url(self):
-    #     return reverse('models-id', args=[str(self.pk)])
+    #     return reverse('models-id', args=[str(self.id)])
 
 
 class Store(models.Model):
@@ -47,4 +47,4 @@ class Store(models.Model):
         return f'{self.name}'
 
     # def get_absolute_url(self):
-    #     return reverse('models-id', args=[str(self.pk)])
+    #     return reverse('models-id', args=[str(self.id)])

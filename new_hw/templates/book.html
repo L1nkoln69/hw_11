@@ -16,5 +16,13 @@
     {% else %}
       <p>There are no books.</p>
     {% endif %}
+<nav>
+    <ul>
+        {% for i in paginator.page_range %}
+            <li>
+            <a href="?page={{ i }}">{{ i }}</a>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

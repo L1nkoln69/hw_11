@@ -11,7 +11,7 @@
       <li>
           <p>
               <a href="{{author.get_absolute_url}}">{{ author.name }}</a>
-              ({{ author.age }} годиков  {{ author.books_count }} книг)
+              ({{ author.age }} год  {{ author.books_count }} книг)
           </p>
       </li>
       {% endfor %}
@@ -19,5 +19,19 @@
     {% else %}
       <p>There are no Authors.</p>
     {% endif %}
+<nav>
+    <ul>
+        {% for i in paginator.page_range %}
+            {% if page_obj.number == i %}
+            <li>{{ i }}</li>
+            {% else %}
+            <li>
+            <a href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</nav>
 </body>
 </html>
