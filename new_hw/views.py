@@ -79,6 +79,22 @@ class OneAuthor(DetailView):
         return Author.objects.prefetch_related('book_set').annotate(average_rating=Round(Avg('book__rating')))
 
 
+class SeeBooks(SeeObjects, ListView):
+    template_name = 'book.html'
+    model = Book
+    context_object_name = 'num_books'
+
+    def get_queryset(self):
+        return Book.objects.all()
+
+
+class OneBook(DetailView):
+    model = Book
+    template_name = 'book_id.html'
+    pk_url_kwarg = 'pk'
+    context_object_name = 'num_books'
+
+
 class UpdateAuthor(AllFormObjects, UpdateView):
     pk_url_kwarg = 'pk'
 

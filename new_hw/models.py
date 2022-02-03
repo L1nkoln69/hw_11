@@ -35,8 +35,8 @@ class Book(models.Model):
     def __str__(self):
         return f'{self.name} {self.rating}'
 
-    # def get_absolute_url(self):
-    #     return reverse('models-id', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('one_book', args=[str(self.id)])
 
 
 class Store(models.Model):

@@ -14,6 +14,6 @@ class AllFormObjects:
 
 
 class SeeObjects:
-    paginate_by = 10
+    paginate_by = 70
     model = None
     template_name = None
