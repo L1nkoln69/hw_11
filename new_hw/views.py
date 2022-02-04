@@ -4,6 +4,8 @@ from django.db.models.functions import Round  # noqa I100
 from django.shortcuts import render, get_object_or_404  # noqa I101
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from .mixins import *
 
 from .models import Author, Book, Publisher, Store
@@ -56,8 +58,9 @@ def models_id(request, models, pk):
         return HttpResponse(f'такое не обслуживаем {models}')
 
 
-class AddAuthor(AllFormObjects, CreateView):
-    pass
+class AddAuthor(LoginRequiredMixin, SuccessMessageMixin, AllFormObjects, CreateView):
+    success_message = 'Author successfully created'
+    login_url = '/admin/'
 
 
 class SeeAuthor(SeeObjects, ListView):
@@ -95,12 +98,16 @@ class OneBook(DetailView):
     context_object_name = 'num_books'
 
 
-class UpdateAuthor(AllFormObjects, UpdateView):
+class UpdateAuthor(LoginRequiredMixin, SuccessMessageMixin, AllFormObjects, UpdateView):
     pk_url_kwarg = 'pk'
+    success_message = 'Author successfully updated'
+    login_url = '/admin/'
 
 
-class DeleteAuthor(DeleteView):
+class DeleteAuthor(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Author
     template_name = 'delete_author.html'
     pk_url_kwarg = 'pk'
     success_url = reverse_lazy('see_author')
+    success_message = 'Author successfully deleted'
+    login_url = '/admin/'
